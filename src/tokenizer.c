@@ -26,6 +26,27 @@ int non_space_char(char c)
       return 0;
     }
   return 1;
+}
 
+char *word_start(char *str)
+{
+  char *ptr = str;
+  while(non_space_char(*ptr))
+    {
+      *ptr++;
+    }
+  while(space_char(*ptr))
+    {
+      *ptr++;
+    }
+  return ptr;
+}
 
+char *word_terminator(char *str)
+{
+  while(non_space_char(*str))
+    {
+      str++;
+    }
+    return str;
 }
