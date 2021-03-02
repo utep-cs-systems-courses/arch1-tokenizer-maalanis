@@ -50,3 +50,19 @@ char *word_terminator(char *str)
     }
     return str;
 }
+int count_words(char *str)
+{
+  int counter = 0;
+  char previous = '0';
+  int i = 0;
+  if(non_space_char(str[0])==1)
+    counter++;
+  while(str[i] != '\0')
+    {
+      if(str[i] != ' ' && previous != ' ')
+	counter++;
+      previous = str[i];
+      i++;
+    }
+  return counter;
+}

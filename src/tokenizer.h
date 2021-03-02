@@ -21,7 +21,7 @@ char *word_start(char *str);
 char *word_terminator(char *word);
 
 /* Counts the number of words in the string argument. */
-//int count_words(char *str);
+int count_words(char *str);
 
 /* Returns a fresly allocated new zero-terminated string 
    containing <len> chars from <inStr> */
