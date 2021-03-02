@@ -66,3 +66,16 @@ int count_words(char *str)
     }
   return counter;
 }
+char *copy_str(char *inStr, short len)
+{
+  char *new_word;
+  new_word =(char *) malloc(len+1);
+
+  int i=0;
+  for(;i<len+1;i++)
+    {
+      new_word[i] = inStr[i];
+    }
+  new_word[i] = '\0';
+  return new_word;
+}
