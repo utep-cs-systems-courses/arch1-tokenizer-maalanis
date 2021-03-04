@@ -36,7 +36,7 @@ char *copy_str(char *inStr, short len);
      tokens[2] = "string" 
      tokens[3] = 0
 */
-//char **tokenize(char* str);
+char **tokenize(char* str);
 
 /* Prints all tokens. */
 //void print_tokens(char **tokens);

@@ -9,6 +9,8 @@ int main()
   printf("Enter string\n");
   scanf("%[^\n]", &z);
   printf("You have entered %s\n", &z);
+  int word_count = count_words(z);
+  printf("%d words\n",word_count);
 }
 
 int space_char(char c)
@@ -59,7 +61,7 @@ int count_words(char *str)
     counter++;
   while(str[i] != '\0')
     {
-      if(str[i] != ' ' && previous != ' ')
+      if(str[i] != ' ' && previous == ' ')
 	counter++;
       previous = str[i];
       i++;
@@ -78,4 +80,23 @@ char *copy_str(char *inStr, short len)
     }
   new_word[i] = '\0';
   return new_word;
+}
+void print_tokens(char **tokens)
+{
+  int i=0;
+  int j=0;
+
+  while(tokens[i][j] != NULL)
+    {
+      printf("token#%d: ", i);
+      while(tokens[i][j] != '\0')
+	{
+	  printf("%c", tokens[i][j]);
+	  j++;
+	}
+      printf("\n");
+      i++;
+      j=0;
+    }
+  printf("\n");
 }
