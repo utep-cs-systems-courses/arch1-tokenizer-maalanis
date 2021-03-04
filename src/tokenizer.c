@@ -11,6 +11,8 @@ int main()
   printf("You have entered %s\n", &z);
   int word_count = count_words(z);
   printf("%d words\n",word_count);
+  char *cop_word = copy_str(z, word_count);
+  
 }
 
 int space_char(char c)
@@ -86,7 +88,7 @@ void print_tokens(char **tokens)
   int i=0;
   int j=0;
 
-  while(tokens[i][j] != NULL)
+  while(tokens[i] != NULL)
     {
       printf("token#%d: ", i);
       while(tokens[i][j] != '\0')
@@ -109,4 +111,26 @@ void free_tokens( char** tokens)
       ptr++;
     }
   free(ptr);
+}
+char **tokenize(char *str)
+{
+  int word_count = count_words(str);
+  char **tokens = malloc (sizeof(char *)*(word_count+1));
+  char *beg = str;
+  char *end = word_terminator(beg);
+  int i =0;
+  for(;i<word_count;i++)
+    {
+      int word_length = end -beg;
+      char *token = copy_str(beg, word_length);
+      tokens[i] = token;
+
+      beg = word_start(beg);
+      end = word_terminator(beg);
+    }
+
+  char var = '0';
+  char *terminator = &var;
+  tokens[i] = terminator;
+  return tokens;
 }
