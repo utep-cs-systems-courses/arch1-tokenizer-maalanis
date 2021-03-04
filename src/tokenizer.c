@@ -100,3 +100,13 @@ void print_tokens(char **tokens)
     }
   printf("\n");
 }
+void free_tokens( char** tokens)
+{
+  char *ptr = *tokens;
+  while(ptr !=NULL)
+    {
+      free(ptr);
+      ptr++;
+    }
+  free(ptr);
+}

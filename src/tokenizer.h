@@ -39,9 +39,9 @@ char *copy_str(char *inStr, short len);
 char **tokenize(char* str);
 
 /* Prints all tokens. */
-//void print_tokens(char **tokens);
+void print_tokens(char **tokens);
 
 /* Frees all tokens and the vector containing themx. */
-//void free_tokens(char **tokens);
+void free_tokens(char **tokens);
 
 #endif
