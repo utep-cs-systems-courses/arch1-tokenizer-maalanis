@@ -9,6 +9,9 @@ int main()
   printf("Enter string\n");
   scanf("%[^\n]", &str);
 
+  List *history = init_history();
+  
+  
   while(compare(str, "EOF") != 0)
     {
   
@@ -34,10 +37,21 @@ int main()
       char *copy;
       int word_count = count_words(str);
       copy = copy_str(str, length_final);
-      char **tokens;
-      tokens = tokenize(str);
-      print_tokens(tokens);
+      if(compare(copy, "!*") !=0 && copy[0]-'!' !=0)
+	add_history(history, copy);
       
+      if(compare(copy, "!*") == 0)
+	print_history(history);
+      
+      if(copy[0] - '!' == 0 && copy[1]>=48 && copy[1]<=57)
+	get_history(history, copy[1]);
+      
+      char **tokens;
+      if(compare(copy, "!*") !=0 && copy[0]-'!' !=0)
+	{
+	  tokens = tokenize(str);
+	  print_tokens(tokens);
+	}
       
       printf("%d words\n",word_count);
       char *cop_word = copy_str(str, word_count);

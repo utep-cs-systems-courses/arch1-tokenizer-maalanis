@@ -50,8 +50,9 @@ void print_history(List *list)
   Item *ptr = head->root;
   while(ptr != NULL)
     {
+     
+      printf("%s\n", ptr->str);
       ptr = ptr->next;
-      printf("\n");
     }
 }
 
