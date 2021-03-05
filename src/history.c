@@ -29,3 +29,18 @@ void add_history(List *list, char *str)
   printf("String inserted: %s \n", tmp->next->str);
 
 }
+char *get_history(List *list, int id)
+{
+  List *head = list;
+  Item *ptr = head->root;
+  while(ptr != NULL)
+    {
+      if(ptr->id == id-48)
+	{
+	  printf("String at ID: %d is %s\n", id-48, ptr->str);
+	  return ptr->str;
+	}
+      ptr = ptr->next;
+    }
+  return list->root->str;
+}
