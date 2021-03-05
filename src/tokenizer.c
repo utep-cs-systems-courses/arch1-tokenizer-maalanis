@@ -5,13 +5,46 @@
 
 int main()
 {
-  char z[100];
+  char str[100];
   printf("Enter string\n");
-  scanf("%[^\n]", &z);
-  printf("You have entered %s\n", &z);
-  int word_count = count_words(z);
-  printf("%d words\n",word_count);
-  char *cop_word = copy_str(z, word_count);
+  scanf("%[^\n]", &str);
+
+  while(compare(str, "EOF") != 0)
+    {
+  
+      printf("You have entered %s\n", &str);
+      int length = strlen(str);
+      int length_final = 0;
+      int spaces = 0;
+      int non_spaces =0;
+
+      for(int i=0; i<length; i++)
+	{
+	  if(space_char(str[i])>0)
+	    spaces++;
+	  if(non_space_char(str[i])>0)
+	    non_spaces++;
+	  if(str[i] != ' ')
+	    length_final++;
+	}
+      char *ptr;
+      char *next_space;
+      ptr = str;
+      next_space = word_start(str);
+      char *copy;
+      int word_count = count_words(str);
+      copy = copy_str(str, length_final);
+      char **tokens;
+      tokens = tokenize(str);
+      print_tokens(tokens);
+      
+      
+      printf("%d words\n",word_count);
+      char *cop_word = copy_str(str, word_count);
+
+      printf("Enter string: ");
+      scanf(" %[^\n]", &str);
+    }
   
 }
 
