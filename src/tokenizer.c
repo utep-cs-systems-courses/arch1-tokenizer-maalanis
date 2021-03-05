@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "tokenizer.h"
-
+#include "history.h"
 int main()
 {
   char str[100];
@@ -121,7 +121,7 @@ void print_tokens(char **tokens)
   int i=0;
   int j=0;
 
-  while(tokens[i] != NULL)
+  while(tokens[i][j] != NULL)
     {
       printf("token#%d: ", i);
       while(tokens[i][j] != '\0')
