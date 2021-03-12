@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+// creates list with memory allocation size of list
 List* init_history()
 {
   List *head = NULL;
@@ -11,6 +12,8 @@ List* init_history()
   return head;
 
 }
+
+//adds the string to the list with memory allocation 
 void add_history(List *list, char *str)
 {
   List *ptr = list;
@@ -29,6 +32,8 @@ void add_history(List *list, char *str)
   printf("String inserted: %s \n", tmp->next->str);
 
 }
+
+//returns the string at specific id
 char *get_history(List *list, int id)
 {
   List *head = list;
@@ -44,6 +49,8 @@ char *get_history(List *list, int id)
     }
   return list->root->str;
 }
+
+//prints whole history
 void print_history(List *list)
 {
   List *head = list;
@@ -55,7 +62,7 @@ void print_history(List *list)
       ptr = ptr->next;
     }
 }
-
+//liberates memory
 void free_history(List *list)
 {
   while(list != NULL)
